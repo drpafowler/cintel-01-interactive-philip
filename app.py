@@ -26,8 +26,7 @@ with ui.sidebar():
 def histogram():
     np.random.seed(19680801)
     dist = input.selected_distribution()
-    size = input.selected_number_samples()  # Number of samples
-
+    size = input.selected_number_samples()  
     if dist == "standard_normal":
         x = np.random.standard_normal(size)
     elif dist == "standard_t":
@@ -53,7 +52,7 @@ def histogram():
     elif dist == "uniform":
         x = np.random.uniform(low=0, high=1, size=size)
     else:
-        x = np.random.standard_normal(size)  # Default to standard normal
-
+        x = np.random.standard_normal(size)  
+        
     plt.hist(x, input.selected_number_bins(), density=True)
     plt.title(f"Histogram of {input.selected_distribution().replace('_', ' ').title()} Distribution")
